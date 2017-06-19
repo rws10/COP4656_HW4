@@ -5,7 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.fsu.cs.mobile.homework4.MainActivity"
-    android:background="#D5D5D5">
+    android:background="@android:drawable/ic_dialog_alert">
 
 
+    <TextView
+        android:id="@+id/songName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/no_song" />
+
+    <TextView
+        android:id="@+id/songArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/songName"
+        android:text="@string/no_artist" />
 </RelativeLayout>

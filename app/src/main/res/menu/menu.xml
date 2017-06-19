@@ -3,4 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- Add download items or setup dynamically -->
+    <item android:id="@+id/download"
+        android:title="@string/download_opt"/>
+
+    <item android:id="@+id/close"
+        android:title="@string/close_opt" />
 </menu>
