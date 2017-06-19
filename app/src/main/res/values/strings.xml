@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Homework4</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sample_url">https://files.freemusicarchive.org/music%2FMusic_for_Video%2FPodington_Bear%2FUplifting%2FPodington_Bear_-_Arise.mp3</string>
+</resources>
