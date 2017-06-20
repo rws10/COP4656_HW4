@@ -1,5 +1,6 @@
 package edu.fsu.cs.mobile.homework4;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -60,8 +61,16 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void doPositiveClick() {
-        Toast.makeText(this, "doPositiveClick()", Toast.LENGTH_LONG).show();
+    public void downloadSong(String url) {
+        // Launch the DownloadSongService intent with url as an Intenet Extra
+        Toast.makeText(this, url, Toast.LENGTH_LONG).show();
+        Bundle bundle = new Bundle();
+        bundle.putString("EXTRA_URL", url);
+
+        Intent intent = new Intent(MainActivity.this, DownloadSongService.class);
+        intent.setAction("ACTION_DOWNLOAD");
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 

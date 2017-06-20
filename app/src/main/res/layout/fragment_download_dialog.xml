@@ -6,7 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/menuContainer">
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
@@ -14,21 +15,15 @@
             android:layout_height="match_parent"
             android:text="@string/download_song" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/enter_url"
-            android:layout_marginTop="17dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
+        <EditText
             android:id="@+id/songUrl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView" />
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="22dp"
+            android:hint="Enter a url"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/button"
