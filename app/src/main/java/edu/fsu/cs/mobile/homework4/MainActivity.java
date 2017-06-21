@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,23 +20,39 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // TODO setup UI
+        Button playButton = (Button) findViewById(R.id.button_Play);
+        Button stopButton = (Button) findViewById(R.id.button_Stop);
+        Button pauseButton = (Button) findViewById(R.id.button_Pause);
+        pauseButton.setVisibility(View.INVISIBLE);
+        playButton.setEnabled(false);
+        stopButton.setEnabled(false);
+        pauseButton.setEnabled(false);
 
         // TODO Do we need to handle any Extras?
+
+
     }
 
     // onClick method for Play button
     public void play(View v) {
         // TODO play MediaPlayer
+        Toast.makeText(this, "Play was pressed", Toast.LENGTH_SHORT).show();
+        songStarted();
     }
 
     // onclick method for Pause button
     public void pause(View v) {
         // TODO pause MediaPlayer
+        Toast.makeText(this, "Pause was pressed", Toast.LENGTH_SHORT).show();
+        songStopped();
     }
 
     // onClick method for Stop button
     public void stop(View v) {
         // TODO stop MediaPlayer
+        Toast.makeText(this, "Stop was pressed", Toast.LENGTH_SHORT).show();
+        songStopped();
+        stopButtonPressed();
     }
 
     @Override
@@ -63,15 +80,44 @@ public class MainActivity extends AppCompatActivity {
 
     public void downloadSong(String url) {
         // Launch the DownloadSongService intent with url as an Intenet Extra
-        Toast.makeText(this, url, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
         Bundle bundle = new Bundle();
         bundle.putString("EXTRA_URL", url);
 
-        Intent intent = new Intent(MainActivity.this, DownloadSongService.class);
+
+        final Intent intent = new Intent(this, DownloadSongService.class);
+        //PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent ,0);
         intent.setAction("ACTION_DOWNLOAD");
         intent.putExtras(bundle);
-        startActivity(intent);
+        //intent.putExtra("pending", contentIntent);
+        startService(intent);
     }
 
-
+// Activate the pause button and set it to visible and deactivate the play button and set it to invisible
+    private void songStarted() {
+        Button pauseButton = (Button) findViewById(R.id.button_Pause);
+        pauseButton.setVisibility(View.VISIBLE);
+        pauseButton.setEnabled(false);
+        Button playButton = (Button) findViewById(R.id.button_Play);
+        playButton.setVisibility(View.INVISIBLE);
+        playButton.setEnabled(false);
+        Button stopButton = (Button)findViewById(R.id.button_Stop);
+        stopButton.setEnabled(true);
     }
+
+    // Activate the play button and set it to visible and deactivate the pause button and set it to invisible
+    private void songStopped() {
+        Button pauseButton = (Button) findViewById(R.id.button_Pause);
+        pauseButton.setVisibility(View.INVISIBLE);
+        pauseButton.setEnabled(false);
+        Button playButton = (Button) findViewById(R.id.button_Play);
+        playButton.setVisibility(View.VISIBLE);
+        playButton.setEnabled(true);
+    }
+
+    private void stopButtonPressed(){
+        Button stopButton = (Button)findViewById(R.id.button_Stop);
+        stopButton.setEnabled(false);
+    }
+
+}

@@ -23,4 +23,31 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/songName"
         android:text="@string/no_artist" />
+
+    <Button
+        android:id="@+id/button_Play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:onClick="play"
+        android:text="Play" />
+
+    <Button
+        android:id="@+id/button_Stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="stop"
+        android:text="Stop" />
+
+    <Button
+        android:id="@+id/button_Pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pause"
+        android:text="Pause"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

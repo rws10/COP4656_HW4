@@ -22,5 +22,6 @@ public class MyMediaService extends Service {
 
     public void loadPlayer(String fileuri) {
         // TODO prepare MediaPlayer with fileuri
+        // possibly activate the play button here.
     }
 }
