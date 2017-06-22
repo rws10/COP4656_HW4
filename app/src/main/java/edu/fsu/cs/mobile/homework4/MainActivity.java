@@ -1,5 +1,6 @@
 package edu.fsu.cs.mobile.homework4;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -86,9 +87,8 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
        // bundle.putE("EXTRA_URL", url);
 
-
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent() ,0);
         final Intent intent = new Intent(this, DownloadSongService.class);
-        //PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent ,0);
         intent.setAction("ACTION_DOWNLOAD");
         intent.putExtra(EXTRA_URL, url);
         //intent.putExtra("pending", contentIntent);

@@ -29,7 +29,8 @@ public class MyMediaService extends Service {
         Uri songUri = Uri.parse(fileuri);
         MediaPlayer mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        //mediaPlayer.setDataSource(getApplicationContext(), songUri);
+        //mediaPlayer.setDataSource(getApplicationContext(),songUri);
+        // .setDataSource(getApplicationContext(), songUri);
         //mediaPlayer.prepare();
         mediaPlayer.start();
     }
