@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import static edu.fsu.cs.mobile.homework4.DownloadSongService.EXTRA_URL;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getCanonicalName();
@@ -82,13 +84,13 @@ public class MainActivity extends AppCompatActivity {
         // Launch the DownloadSongService intent with url as an Intenet Extra
         Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
         Bundle bundle = new Bundle();
-        bundle.putString("EXTRA_URL", url);
+       // bundle.putE("EXTRA_URL", url);
 
 
         final Intent intent = new Intent(this, DownloadSongService.class);
         //PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent ,0);
         intent.setAction("ACTION_DOWNLOAD");
-        intent.putExtras(bundle);
+        intent.putExtra(EXTRA_URL, url);
         //intent.putExtra("pending", contentIntent);
         startService(intent);
     }

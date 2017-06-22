@@ -25,8 +25,8 @@ public class DownloadDialog extends DialogFragment {
                 Dialog dialogView = getDialog();
                 //https://stackoverflow.com/questions/27037381/gettext-from-a-edittext-in-a-dialogfragment
                 EditText editText = (EditText) dialogView.findViewById(R.id.songUrl); //
-                String url = editText.getText().toString();
-
+                //String url = editText.getText().toString();
+String url = "https://files.freemusicarchive.org/music%2FMusic_for_Video%2FPodington_Bear %2FUplifting%2FPodington_Bear_-_Arise.mp3";
                 MainActivity act = (MainActivity) getActivity();
                 act.downloadSong(url);
             }

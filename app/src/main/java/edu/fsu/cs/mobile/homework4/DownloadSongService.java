@@ -14,7 +14,7 @@ import static android.content.ContentValues.TAG;
 
 public class DownloadSongService extends IntentService {
     private static final String ACTION_DOWNLOAD = "edu.fsu.cs.mobile.homework4.action.DOWNLOAD";
-    private static final String EXTRA_URL = "edu.fsu.cs.mobile.homework4.extra.URL";
+    public static final String EXTRA_URL = "edu.fsu.cs.mobile.homework4.extra.URL";
     private DownloadManager downloadManager;
     private long mydownloadRefernce;
     private BroadcastReceiver reciverDownloadComplete;
@@ -28,7 +28,7 @@ public class DownloadSongService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         if (intent != null) {
             final String action = intent.getAction();
-            if (ACTION_DOWNLOAD.equals(action)) {
+            if (ACTION_DOWNLOAD.equals(ACTION_DOWNLOAD)) {
                 final String url = intent.getStringExtra(EXTRA_URL);
                 //PendingIntent pIntent = (PendingIntent) intent.getParcelableExtra("pending");
                 String songName;
